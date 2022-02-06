@@ -16,11 +16,19 @@ body
     width: 100%;
 }
 
-#start,#status{
+#start,#status,#restart{
     font-size: 22px;
 }
 
 .heading{
     width: 100%;
     text-align: left;
+}
+
+#copy_right_footer{
+    line-height: 2;
+    margin: 0px;
+    position: sticky;
+    background-color: grey;
+    color: white;
 }
