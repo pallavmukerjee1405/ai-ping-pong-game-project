@@ -21,15 +21,38 @@ var ball = {
     dy:3
 }
 
+rightWristY=0;
+rightWristX=0;
+scoreRightWrist=0;
+game_status="";
+
 function setup(){
   var canvas =  createCanvas(700,600);
   canvas.parent('canvas');
+  video=createCapture(VIDEO);
+  video.size(700,600);
+  video.hide();
+  
+  poseNet=ml5.poseNet(video,modelLoaded);
+  poseNet.on('pose',gotPoses);
 }
 
+function modelLoaded(){
+  console.log('Model Loaded!');
+}
+
+function gotPoses(results){
+  if(results.length>0){
+    rightWristY=results[0].pose.rightWrist.y;
+    rightWristX=results[0].pose.rightWrist.x;
+    console.log("rightWristX = "+rightWristX+", rightWristY = "+rightWristY);
+  }
+}
 
 function draw(){
 
- background(0); 
+ background(0);
+ image(video,0,0,700,600);
 
  fill("black");
  stroke("black");
