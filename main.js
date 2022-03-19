@@ -51,6 +51,12 @@ function gotPoses(results){
 
 function draw(){
 
+  if(scoreRightWrist>0.2){
+    fill("red");
+    stroke("red");
+    circle(400,400,10);
+  }
+
  background(0);
  image(video,0,0,700,600);
 
