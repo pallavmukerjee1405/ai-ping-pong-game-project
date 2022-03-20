@@ -49,12 +49,23 @@ function gotPoses(results){
   }
 }
 
+function startGame(){
+     game_status="start";
+     document.getElementById("status").innerHTML="Game Is Loading";
+}
+
 function draw(){
+
+  
 
   if(scoreRightWrist>0.2){
     fill("red");
     stroke("red");
     circle(400,400,10);
+  }
+
+  if(game_status=="start"){
+    document.getElementById("status").innerHTML="Game Is Loading";
   }
 
  background(0);
